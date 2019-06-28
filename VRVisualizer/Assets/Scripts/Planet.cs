@@ -25,7 +25,7 @@ public class Planet : MonoBehaviour
     {
         if (!isDestroyed)
         {
-            audioSource.PlayOneShot(destroy, 0.1f);
+            audioSource.PlayOneShot(destroy, 0.5f);
             meshRenderer.enabled = false;
             isDestroyed = true;
             StartCoroutine(DelayRespawn());
@@ -35,7 +35,7 @@ public class Planet : MonoBehaviour
     IEnumerator DelayRespawn()
     {
         yield return new WaitForSeconds(respawnDelay);
-        audioSource.PlayOneShot(respawn, 0.1f);
+        audioSource.PlayOneShot(respawn, 0.5f);
         meshRenderer.enabled = true;
         isDestroyed = false;
     }

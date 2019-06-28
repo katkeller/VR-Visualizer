@@ -12,6 +12,12 @@ public class ShootGun : MonoBehaviour
     [SerializeField]
     private GameObject gun;
 
+    [SerializeField]
+    private ParticleSystem muzzleFlash;
+
+    [SerializeField]
+    private GameObject destroyParticles;
+
     private AudioSource audioSource;
 
     private void Awake()
@@ -30,6 +36,7 @@ public class ShootGun : MonoBehaviour
     private void Shoot()
     {
         audioSource.Play();
+        muzzleFlash.Play();
 
         RaycastHit hitInfo;
 
@@ -42,6 +49,8 @@ public class ShootGun : MonoBehaviour
             if (planet != null)
             {
                 planet.TakeDamage();
+                GameObject impactGameObject = Instantiate(destroyParticles, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(impactGameObject, 2.0f);
             }
         }
     }
