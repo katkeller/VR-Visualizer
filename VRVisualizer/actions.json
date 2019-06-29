@@ -47,6 +47,11 @@
       "requirement": "mandatory"
     },
     {
+      "name": "/actions/default/in/AButtonPress",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
